@@ -4,36 +4,69 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    Vector2 direction;
+    public float scale = 3;
+    float speed;
+    Rigidbody2D rb;
+    int deathSpawn = 2; //num of asteroids spawned upon death
+
+
+    void Awake()
     {
-        /*
-        Set random rotation
-
-        set asteroid size. Could be defined by int and depending on int, set size.
-
-
-
-
-        */
+        speed = 5f;
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        /*
-        
-        move towards random rotation
+        rb.MovePosition(rb.position += direction * speed * Time.deltaTime);
+    }
 
-        maybe move slighty towards player position
+    public void SetDirection()
+    {
+        direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+    }
+    public void SetDirection(Vector2 inDirection)
+    {
+        direction = inDirection;
+    }
 
-        occasionally shoot?
+    public void SetScale()
+    {
+        transform.localScale = new Vector3(scale, scale, 0f);
+    }
 
-        If struck by player bullet, split: create 2 asteroids of smaller size then destroy itself.
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Bullet")
+        {
+            Destroy(collision);
 
-        
+            if (scale > 1)
+            {
+                for (int i = 0; i < deathSpawn; i++)
+                {
+                    GameObject asteroid = Instantiate(gameObject, transform.position, transform.rotation);
 
+                    if (i == 0)
+                    {
+                        asteroid.GetComponent<Asteroid>().SetDirection(transform.right);
+                    }
+                    else
+                    {
+                        asteroid.GetComponent<Asteroid>().SetDirection(transform.right * -1);
+                    }
 
-        */
+                    
+                    asteroid.GetComponent<Asteroid>().scale--;
+                    asteroid.GetComponent<Asteroid>().SetScale();
+
+                    Destroy(asteroid, 10);
+                    asteroid.transform.parent = null;
+                }
+            }
+
+            Destroy(gameObject);
+        }
     }
 }

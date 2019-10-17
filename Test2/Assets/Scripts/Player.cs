@@ -4,30 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
     public GameObject bulletPrefab;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-
-        Player stats:
-        speed
-        health
-        score
-
-        bullet
-
-
-
-
-
-
-
-        */
-        speed = 5.0f;
 
     }
 
@@ -44,5 +26,14 @@ public class Player : MonoBehaviour
         rbBullet.AddForce(transform.up * 50f);
         Destroy(bullet, 3);
         bullet.transform.parent = null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.tag == "Asteroid")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

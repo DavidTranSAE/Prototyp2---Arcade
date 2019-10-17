@@ -6,18 +6,14 @@ public class PlayerController : MonoBehaviour
 {
     Vector3 rotateVector;
     Transform target;
-    float rotSpeed;
     Rigidbody2D rb;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        rotSpeed = 5.0f;
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {   /*
         GetComponent<Player>().Move(new Vector2(Input.GetAxisRaw("P1HorizontalL"), Input.GetAxisRaw("P1VerticalL")));
@@ -46,25 +42,20 @@ public class PlayerController : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.MovePosition(rb.position + moveDirection * Time.fixedDeltaTime);*/
 
-
-        Debug.DrawRay(transform.position, transform.up, Color.red);
-
-
         if (Input.GetAxis("Vertical") > 0)
         {
-            //rb.MovePosition(transform.position + transform.up);
-            transform.position += transform.up * Time.deltaTime;
-            //????
+            rb.AddForce(transform.up * GetComponent<Stats>().speed * Time.deltaTime);
         }
+
 
         if (Input.GetAxis("Horizontal") > 0)
         {
-            transform.Rotate(new Vector3(0, 0, Input.GetAxis("Horizontal") * -1), Space.Self);
+            transform.Rotate(new Vector3(0, 0, Input.GetAxis("Horizontal") * GetComponent<Stats>().rotSpeed * -1), Space.Self);
         }
 
         if (Input.GetAxis("Horizontal") < 0)
         {
-            transform.Rotate(new Vector3(0, 0, Input.GetAxis("Horizontal") * -1), Space.Self);
+            transform.Rotate(new Vector3(0, 0, Input.GetAxis("Horizontal") * GetComponent<Stats>().rotSpeed * -1), Space.Self);
         }
 
         if (Input.GetKeyDown("space"))
