@@ -50,11 +50,11 @@ public class Asteroid : MonoBehaviour
 
                     if (i == 0)
                     {
-                        asteroid.GetComponent<Asteroid>().SetDirection(transform.right);
+                        asteroid.GetComponent<Asteroid>().SetDirection(collision.transform.right);
                     }
                     else
                     {
-                        asteroid.GetComponent<Asteroid>().SetDirection(transform.right * -1);
+                        asteroid.GetComponent<Asteroid>().SetDirection(collision.transform.right * -1);
                     }
 
                     
