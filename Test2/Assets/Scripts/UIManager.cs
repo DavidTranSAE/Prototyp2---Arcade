@@ -8,26 +8,54 @@ public class UIManager : MonoBehaviour
     public GameObject player;
     public Text scoreText;
     public Text livesText;
-    public Sprite livesImage;
+    public Image livesImagePrefab;
     List<Image> livesList = new List<Image>();
+
+    private void OnEnable()
+    {
+        Player.Gain += GainLife;
+        Player.Lose += LoseLife;
+    }
+
+    private void OnDisable()
+    {
+        Player.Gain -= GainLife;
+        Player.Lose -= LoseLife;
+    }
 
     void Start()
     {
-        UpdateLives();
+        for (int i = 0; i < player.GetComponent<Stats>().lives; i++)
+        {
+            Image newImage = Instantiate(livesImagePrefab, livesText.transform);
+            livesList.Add(newImage);
+        }
+
+        UpdateLife();
     }
 
     void Update()
     {
-        
+        scoreText.text = player.GetComponent<Stats>().score.ToString();
     }
 
-    void UpdateLives()
+    void UpdateLife()
     {
-        int lives = player.GetComponent<Stats>().lives;
-
-        for(int i = 0; i < lives; i++)
+        for (int i = 0; i < livesList.Count; i++)
         {
-
+            livesList[i].transform.localPosition = new Vector3(100 + (50 * i), 0, 0);
         }
+    }
+
+    void GainLife()
+    {
+        livesList.Add(Instantiate(livesImagePrefab, livesText.transform));
+        UpdateLife();
+    }
+
+    void LoseLife()
+    {
+        livesList.RemoveAt(0);
+        UpdateLife();
     }
 }

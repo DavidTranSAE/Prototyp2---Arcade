@@ -11,9 +11,13 @@ public class Asteroid : MonoBehaviour
     int deathSpawn = 2; //num of asteroids spawned upon death
 
 
+    public delegate void Score(int score);
+    public static event Score Add;
+
     void Awake()
     {
-        speed = 5f;
+        //speed = 5f;
+        speed = Random.Range(3, 8);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -67,6 +71,8 @@ public class Asteroid : MonoBehaviour
             }
 
             Destroy(gameObject);
+
+            Add((int)(100 * speed / scale));
         }
     }
 }

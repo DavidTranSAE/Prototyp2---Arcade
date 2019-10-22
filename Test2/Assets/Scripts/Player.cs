@@ -6,6 +6,19 @@ public class Player : MonoBehaviour
 {
     public GameObject bulletPrefab;
 
+    public delegate void Life();
+    public static event Life Lose;
+    public static event Life Gain;
+
+    private void OnEnable()
+    {
+        Asteroid.Add += AddScore;
+    }
+
+    private void OnDisable()
+    {
+        Asteroid.Add -= AddScore;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +29,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("s"))
+        {
+            GetComponent<Stats>().score += 100;
+        }
     }
 
     public void Shoot()
@@ -34,6 +50,12 @@ public class Player : MonoBehaviour
         if (collision.tag == "Asteroid")
         {
             Destroy(collision.gameObject);
+            Lose();
         }
+    }
+
+    void AddScore(int score)
+    {
+        GetComponent<Stats>().score += score;
     }
 }

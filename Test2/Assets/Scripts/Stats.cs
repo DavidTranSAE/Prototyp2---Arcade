@@ -7,11 +7,12 @@ public class Stats : MonoBehaviour
     public float speed;
     public float rotSpeed;
     public int lives;
+    public int score;
 
     // Start is called before the first frame update
     void Start()
     {
-        speed = 200f;
+        speed = 300f;
         rotSpeed = 4f;
         lives = 3;
     }
