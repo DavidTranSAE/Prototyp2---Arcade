@@ -20,28 +20,26 @@ public class Player : MonoBehaviour
         Asteroid.Add -= AddScore;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("s"))
+        /*if (Input.GetKeyDown("e"))
         {
             GetComponent<Stats>().score += 100;
-        }
+        }*/
     }
 
     public void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
-        rbBullet.AddForce(transform.up * 50f);
-        Destroy(bullet, 3);
-        bullet.transform.parent = null;
+        if (GetComponent<Stats>().shootTimer <= 0)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+            rbBullet.AddForce(transform.up * 50f);
+            Destroy(bullet, 3);
+            bullet.transform.parent = null;
+
+            GetComponent<Stats>().shootTimer = GetComponent<Stats>().shootCap;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,12 +48,29 @@ public class Player : MonoBehaviour
         if (collision.tag == "Asteroid")
         {
             Destroy(collision.gameObject);
-            Lose();
+            LoseLife();
         }
     }
 
     void AddScore(int score)
     {
         GetComponent<Stats>().score += score;
+    }
+
+    public void GainLife()
+    {
+        GetComponent<Stats>().lives++;
+        Gain();
+    }
+
+    public void LoseLife()
+    {
+        GetComponent<Stats>().lives--;
+        Lose();
+    }
+
+    private void OnBecameInvisible()
+    {
+        transform.position = -transform.position;
     }
 }

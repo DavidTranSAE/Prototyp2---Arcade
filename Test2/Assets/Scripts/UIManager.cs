@@ -55,7 +55,11 @@ public class UIManager : MonoBehaviour
 
     void LoseLife()
     {
-        livesList.RemoveAt(0);
-        UpdateLife();
+        if(livesList.Count > 0)
+        {
+            Destroy(livesList[0].gameObject);
+            livesList.RemoveAt(0);
+            UpdateLife();
+        }
     }
 }

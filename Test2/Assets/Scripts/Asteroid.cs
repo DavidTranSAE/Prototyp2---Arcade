@@ -17,7 +17,7 @@ public class Asteroid : MonoBehaviour
     void Awake()
     {
         //speed = 5f;
-        speed = Random.Range(3, 8);
+        speed = Random.Range(4, 7);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -74,5 +74,10 @@ public class Asteroid : MonoBehaviour
 
             Add((int)(100 * speed / scale));
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }

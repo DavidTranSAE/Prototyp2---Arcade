@@ -9,17 +9,20 @@ public class Stats : MonoBehaviour
     public int lives;
     public int score;
 
-    // Start is called before the first frame update
+
+    public float shootCap;
+    public float shootTimer;
+    
     void Start()
     {
         speed = 300f;
         rotSpeed = 4f;
         lives = 3;
+        shootCap = 0.75f;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        shootTimer -= Time.deltaTime;
     }
 }

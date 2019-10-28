@@ -10,30 +10,36 @@ public class AsteroidSpawner : MonoBehaviour
     float spawnTimerCap;
     float spawnTimer;
 
-    public Transform[] spawnPoints = new Transform[4];
-
-    // Start is called before the first frame update
+    public GameObject[] spawnPoints = new GameObject[8];
+    
     void Start()
     {
-        spawnTimerCap = 0.5f;
+        spawnTimerCap = 1f;
         spawnAmount = 1;
         spawnTimer = spawnTimerCap;
 
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         spawnTimer -= Time.deltaTime;
 
         if(spawnTimer <= 0)
         {
-            GameObject asteroid = Instantiate(asteroidPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)].position, transform.rotation);
-            asteroid.GetComponent<Asteroid>().SetDirection();
-            Destroy(asteroid, 10);
-            asteroid.transform.parent = null;
+            for (int i = 0; i < spawnAmount; i++)
+            {
+                int tempIndex = Random.Range(0, spawnPoints.Length);
 
-            spawnTimer = spawnTimerCap;
+                GameObject asteroid = Instantiate(asteroidPrefab, spawnPoints[tempIndex].transform.position, transform.rotation);
+                asteroid.GetComponent<Asteroid>().SetDirection(spawnPoints[tempIndex].GetComponent<SpawnVector>().GetVector());
+                //Destroy(asteroid, 10);
+                asteroid.transform.parent = null;
+
+                spawnTimer = spawnTimerCap;
+            }
+
+
+            
         }
     }
 }
