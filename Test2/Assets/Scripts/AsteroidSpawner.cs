@@ -11,6 +11,7 @@ public class AsteroidSpawner : MonoBehaviour
     float spawnTimer;
 
     public GameObject[] spawnPoints = new GameObject[8];
+    List<GameObject> allAsteroids;
     
     void Start()
     {
@@ -32,8 +33,9 @@ public class AsteroidSpawner : MonoBehaviour
 
                 GameObject asteroid = Instantiate(asteroidPrefab, spawnPoints[tempIndex].transform.position, transform.rotation);
                 asteroid.GetComponent<Asteroid>().SetDirection(spawnPoints[tempIndex].GetComponent<SpawnVector>().GetVector());
-                //Destroy(asteroid, 10);
                 asteroid.transform.parent = null;
+
+                //asteroid.GetComponent<Asteroid>().asteroidSpawner = gameObject;
 
                 spawnTimer = spawnTimerCap;
             }
@@ -41,5 +43,25 @@ public class AsteroidSpawner : MonoBehaviour
 
             
         }
+    }
+
+    public void AddToList(GameObject asteroid)
+    {
+        allAsteroids.Add(asteroid);
+    }
+
+    public void RemoveFromList(GameObject asteroid)
+    {
+        allAsteroids.Remove(asteroid);
+    }
+
+    public void RemoveAll()
+    {
+        for (int i = 0; i < allAsteroids.Count; i++)
+        {
+            Destroy(allAsteroids[i].gameObject);
+        }
+
+        allAsteroids.Clear();
     }
 }

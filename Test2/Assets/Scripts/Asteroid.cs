@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    public GameObject asteroidSpawner;
+
     Vector2 direction;
-    public float scale = 3;
+    public float scale = 3; //The original scale of the object. It is first 3 times the size and then gets smaller as it gets destroyed.
     float speed;
     Rigidbody2D rb;
     int deathSpawn = 2; //num of asteroids spawned upon death
@@ -16,11 +18,14 @@ public class Asteroid : MonoBehaviour
 
     void Awake()
     {
-        //speed = 5f;
         speed = Random.Range(4, 7);
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        //asteroidSpawner.GetComponent<AsteroidSpawner>().AddToList(gameObject);
+    }
     void Update()
     {
         rb.MovePosition(rb.position += direction * speed * Time.deltaTime);
@@ -46,6 +51,7 @@ public class Asteroid : MonoBehaviour
         {
             Destroy(collision);
 
+            //if the asteroid is large, it breaks down
             if (scale > 1)
             {
                 for (int i = 0; i < deathSpawn; i++)
@@ -61,23 +67,29 @@ public class Asteroid : MonoBehaviour
                         asteroid.GetComponent<Asteroid>().SetDirection(collision.transform.right * -1);
                     }
 
-                    
+                    //reduce the size of the spawned asteroid
                     asteroid.GetComponent<Asteroid>().scale--;
                     asteroid.GetComponent<Asteroid>().SetScale();
 
-                    Destroy(asteroid, 10);
                     asteroid.transform.parent = null;
                 }
             }
 
-            Destroy(gameObject);
+            DestroyThisAsteroid();
 
+            //Triggers the add event which gives out a value based on the speed of the asteroid destroyed and the scale of it.
             Add((int)(100 * speed / scale));
         }
     }
 
     private void OnBecameInvisible()
     {
+        DestroyThisAsteroid();
+    }
+
+    private void DestroyThisAsteroid()
+    {
+        //asteroidSpawner.GetComponent<AsteroidSpawner>().RemoveFromList(gameObject);
         Destroy(gameObject);
     }
 }

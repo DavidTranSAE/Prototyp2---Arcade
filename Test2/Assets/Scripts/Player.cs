@@ -57,20 +57,25 @@ public class Player : MonoBehaviour
         GetComponent<Stats>().score += score;
     }
 
+    //This changes the life stat and also triggers the Gain event which will allow other scripts that are listening to that event to do certain things when a player gains life
+    //UIManager listens to this event so that the life UI gets updated accordingly
     public void GainLife()
     {
         GetComponent<Stats>().lives++;
         Gain();
     }
 
+    //Same as above
     public void LoseLife()
     {
         GetComponent<Stats>().lives--;
         Lose();
     }
 
+    //Rough way to make the player appear on other side of screen once off.
     private void OnBecameInvisible()
     {
         transform.position = -transform.position;
+
     }
 }

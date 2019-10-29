@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public Text scoreText;
     public Text livesText;
     public Image livesImagePrefab;
-    List<Image> livesList = new List<Image>();
+    List<Image> livesList = new List<Image>(); //list of lives images to show on the UI
 
     private void OnEnable()
     {
@@ -39,6 +39,7 @@ public class UIManager : MonoBehaviour
         scoreText.text = player.GetComponent<Stats>().score.ToString();
     }
 
+    //update lives UI to show the correct amount
     void UpdateLife()
     {
         for (int i = 0; i < livesList.Count; i++)
