@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     //public GameObject asteroidSpawner;
+    public GameObject particlePrefab;
 
     private void OnEnable()
     {
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     void LoseLife()
     {
+        GameObject reference = (GameObject)Instantiate(particlePrefab, player.transform.position, Quaternion.identity);
+        Destroy(reference, 0.5f);
         if (player.GetComponent<Stats>().lives > 0)
         {
             player.SetActive(false);
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             player.SetActive(false);
             StartCoroutine(GameOver());
+
         }
     }
 

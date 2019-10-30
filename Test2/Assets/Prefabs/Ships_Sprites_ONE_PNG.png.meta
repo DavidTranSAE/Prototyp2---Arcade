@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: 5b327baacd8239b4b83627b734a72d25
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4194165224114474791
+    second: Ships_Sprites_ONE_PNG_0
+  - first:
+      213: 2094971500948162192
+    second: Ships_Sprites_ONE_PNG_1
+  - first:
+      213: 5000199054271722037
+    second: Ships_Sprites_ONE_PNG_2
+  - first:
+      213: -8149473927106001645
+    second: Ships_Sprites_ONE_PNG_3
+  - first:
+      213: -2727332449982225704
+    second: Ships_Sprites_ONE_PNG_4
+  - first:
+      213: -8021893599905313521
+    second: Ships_Sprites_ONE_PNG_5
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ships_Sprites_ONE_PNG_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 519
+        width: 451
+        height: 505
+      alignment: 9
+      pivot: {x: 0.47899768, y: 0.2874276}
+      border: {x: 0, y: 5, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab9d54ae0006cf4abfb6ad1731933c9
+      internalID: -4194165224114474791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ships_Sprites_ONE_PNG_1
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 514
+        width: 303
+        height: 510
+      alignment: 9
+      pivot: {x: 0.48362628, y: 0.43190452}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a308a4c0e930ff646801f5607cecdad3
+      internalID: 2094971500948162192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ships_Sprites_ONE_PNG_2
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 505
+        width: 455
+        height: 519
+      alignment: 9
+      pivot: {x: 0.43457702, y: 0.28969672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a625bf6dbfcf68846b07d4fbd6cc46bc
+      internalID: 5000199054271722037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ships_Sprites_ONE_PNG_3
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 0
+        width: 391
+        height: 435
+      alignment: 9
+      pivot: {x: 0.5000004, y: 0.3859485}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb9669270e8f320458cd1336a50e8596
+      internalID: -8149473927106001645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ships_Sprites_ONE_PNG_4
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 3
+        width: 318
+        height: 521
+      alignment: 9
+      pivot: {x: 0.4843986, y: 0.31907192}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb03d047f04f0f46a51f2bdc16bb635
+      internalID: -2727332449982225704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ships_Sprites_ONE_PNG_5
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 0
+        width: 406
+        height: 519
+      alignment: 9
+      pivot: {x: 0.4999997, y: 0.3566117}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b92fd3226c054994dae1e1af93190a25
+      internalID: -8021893599905313521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
