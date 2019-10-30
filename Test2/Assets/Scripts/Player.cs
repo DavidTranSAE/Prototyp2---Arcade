@@ -42,6 +42,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void ShootLaser()
+    {
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, transform.up, 100f);
+        
+        for(int i = 0; i < hit.Length; i++)
+        {
+            if (hit[i].collider.tag == "Asteroid")
+            {
+                hit[i].collider.GetComponent<Asteroid>().DestroyThisAsteroid();
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         

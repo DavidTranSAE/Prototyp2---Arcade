@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject player;
-    public GameObject asteroidSpawner;
+    //public GameObject asteroidSpawner;
 
     private void OnEnable()
     {
@@ -37,6 +37,13 @@ public class GameManager : MonoBehaviour
     IEnumerator Death()
     {
         yield return new WaitForSeconds(3);
+
+        GameObject[] allAsteroids = GameObject.FindGameObjectsWithTag("Asteroid");
+        for(int i = 0; i < allAsteroids.Length; i++)
+        {
+            Destroy(allAsteroids[i].gameObject);
+        }
+
         player.SetActive(true);
         player.transform.position = new Vector3(0, 0, 0);
         //asteroidSpawner.GetComponent<AsteroidSpawner>().RemoveAll();

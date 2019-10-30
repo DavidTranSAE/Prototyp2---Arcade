@@ -11,7 +11,7 @@ public class AsteroidSpawner : MonoBehaviour
     float spawnTimer;
 
     public GameObject[] spawnPoints = new GameObject[8];
-    List<GameObject> allAsteroids;
+    //List<GameObject> allAsteroids;
     
     void Start()
     {
@@ -45,7 +45,7 @@ public class AsteroidSpawner : MonoBehaviour
         }
     }
 
-    public void AddToList(GameObject asteroid)
+    /*public void AddToList(GameObject asteroid)
     {
         allAsteroids.Add(asteroid);
     }
@@ -63,5 +63,5 @@ public class AsteroidSpawner : MonoBehaviour
         }
 
         allAsteroids.Clear();
-    }
+    }*/
 }

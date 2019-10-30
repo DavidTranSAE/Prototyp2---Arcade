@@ -49,7 +49,7 @@ public class Asteroid : MonoBehaviour
     {
         if(collision.tag == "Bullet")
         {
-            Destroy(collision);
+            Destroy(collision.gameObject);
 
             //if the asteroid is large, it breaks down
             if (scale > 1)
@@ -87,7 +87,7 @@ public class Asteroid : MonoBehaviour
         DestroyThisAsteroid();
     }
 
-    private void DestroyThisAsteroid()
+    public void DestroyThisAsteroid()
     {
         //asteroidSpawner.GetComponent<AsteroidSpawner>().RemoveFromList(gameObject);
         Destroy(gameObject);

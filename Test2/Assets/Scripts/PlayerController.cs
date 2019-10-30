@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     Transform target;
     Rigidbody2D rb;
 
+    bool shoot = true;
+
 
     void Start()
     {
@@ -35,7 +37,17 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            GetComponent<Player>().Shoot();
+            if(shoot)
+            {
+                GetComponent<Player>().Shoot();
+                shoot = false;
+            }
+            else
+            {
+                GetComponent<Player>().ShootLaser();
+                //shoot = true;
+            }
+            
         }
     }
 }
