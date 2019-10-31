@@ -7,10 +7,12 @@ public class Asteroid : MonoBehaviour
     public GameObject asteroidSpawner;
 
     Vector2 direction;
-    public float scale = 3; //The original scale of the object. It is first 3 times the size and then gets smaller as it gets destroyed.
+    public float scale; //The original scale of the object. It is first 3 times the size and then gets smaller as it gets destroyed.
     float speed;
     Rigidbody2D rb;
     int deathSpawn = 2; //num of asteroids spawned upon death
+    public int life = 3;
+    float rotSpeed;
 
 
     public delegate void Score(int score);
@@ -19,16 +21,22 @@ public class Asteroid : MonoBehaviour
     void Awake()
     {
         speed = Random.Range(4, 7);
+        rotSpeed = Random.Range(25, 75);
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Start()
     {
         //asteroidSpawner.GetComponent<AsteroidSpawner>().AddToList(gameObject);
+        if (life <= 2)
+        {
+            rotSpeed = Random.Range(100, 125);
+        }
     }
     void Update()
     {
         rb.MovePosition(rb.position += direction * speed * Time.deltaTime);
+        transform.Rotate(new Vector3(0, 0, rotSpeed * Time.deltaTime), Space.Self);
     }
 
     public void SetDirection()
@@ -52,7 +60,7 @@ public class Asteroid : MonoBehaviour
             Destroy(collision.gameObject);
 
             //if the asteroid is large, it breaks down
-            if (scale > 1)
+            if (life > 1)
             {
                 for (int i = 0; i < deathSpawn; i++)
                 {
@@ -68,8 +76,10 @@ public class Asteroid : MonoBehaviour
                     }
 
                     //reduce the size of the spawned asteroid
-                    asteroid.GetComponent<Asteroid>().scale--;
+                    asteroid.GetComponent<Asteroid>().scale /= 2;
                     asteroid.GetComponent<Asteroid>().SetScale();
+
+                    asteroid.GetComponent<Asteroid>().life--;
 
                     asteroid.transform.parent = null;
                 }

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     void LoseLife()
     {
         GameObject reference = (GameObject)Instantiate(particlePrefab, player.transform.position, Quaternion.identity);
-        Destroy(reference, 0.5f);
+        Destroy(reference, 1f);
         if (player.GetComponent<Stats>().lives > 0)
         {
             player.SetActive(false);
