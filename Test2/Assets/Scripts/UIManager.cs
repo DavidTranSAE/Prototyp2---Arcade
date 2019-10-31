@@ -7,8 +7,9 @@ public class UIManager : MonoBehaviour
 {
     public GameObject player;
     public Text scoreText;
-    public Text livesText;
+    public Image livesImage;
     public Image livesImagePrefab;
+    public Transform livesPos;
     List<Image> livesList = new List<Image>(); //list of lives images to show on the UI
 
     private void OnEnable()
@@ -27,7 +28,7 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < player.GetComponent<Stats>().lives; i++)
         {
-            Image newImage = Instantiate(livesImagePrefab, livesText.transform);
+            Image newImage = Instantiate(livesImagePrefab, livesImage.transform);
             livesList.Add(newImage);
         }
 
@@ -44,13 +45,13 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < livesList.Count; i++)
         {
-            livesList[i].transform.localPosition = new Vector3(100 + (50 * i), 0, 0);
+            livesList[i].transform.position = livesPos.position + new Vector3(40 * i, 0, 0);
         }
     }
 
     void GainLife()
     {
-        livesList.Add(Instantiate(livesImagePrefab, livesText.transform));
+        livesList.Add(Instantiate(livesImagePrefab, livesImage.transform));
         UpdateLife();
     }
 

@@ -90,5 +90,17 @@ public class Player : MonoBehaviour
     {
         transform.position = -transform.position;
 
+
+        /*if(Mathf.Abs(0 - transform.position.y) > Mathf.Abs(0 - transform.position.x))
+        {
+            transform.position = new Vector3(transform.position.x, -transform.position.x, transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(-transform.position.x, transform.position.x, transform.position.z);
+        }*/
+
+
+
     }
 }

@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
             if(shoot)
             {
                 GetComponent<Player>().Shoot();
-                shoot = false;
+                //shoot = false;
             }
             else
             {
