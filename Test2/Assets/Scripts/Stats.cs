@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    public float speed;
-    public float rotSpeed;
     public int lives;
     public int score;
+    public int bulletLevel;
+
+    public float speed;
+    public float rotSpeed;
+
+    
 
 
     public float shootCap;
     public float shootTimer;
+
     
     void Start()
     {
@@ -19,6 +24,7 @@ public class Stats : MonoBehaviour
         rotSpeed = 4f;
         lives = 3;
         shootCap = 0.75f;
+        bulletLevel = 1;
     }
     
     void Update()

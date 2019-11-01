@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 32f82726d7e862445a85d922bacf7236
+guid: 3ca0b2ac4bd8da54f9c88c2ef15aac89
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9205421019877366954
-    second: Sprites Simple Fireball_0
+      213: -488170691381688840
+    second: Sprites Simple Fireball - Changed_0
   - first:
-      213: -3473196590691080499
-    second: Sprites Simple Fireball_1
+      213: 1615503203286057261
+    second: Sprites Simple Fireball - Changed_1
   - first:
-      213: 6616289556537171845
-    second: Sprites Simple Fireball_2
+      213: 8029953136333606999
+    second: Sprites Simple Fireball - Changed_2
   - first:
-      213: -1214740573288635696
-    second: Sprites Simple Fireball_3
+      213: 7592206435329397364
+    second: Sprites Simple Fireball - Changed_3
   - first:
-      213: 6648636953242376369
-    second: Sprites Simple Fireball_4
+      213: 8090111301286024421
+    second: Sprites Simple Fireball - Changed_4
   - first:
-      213: -4533876085337160701
-    second: Sprites Simple Fireball_5
+      213: -2940495094598245364
+    second: Sprites Simple Fireball - Changed_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprites Simple Fireball_0
+      name: Sprites Simple Fireball - Changed_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffe865f938e3b0643aea6db295af3af7
-      internalID: 9205421019877366954
+      spriteID: e61ae040ef149a34991cc8139df8014f
+      internalID: -488170691381688840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites Simple Fireball_1
+      name: Sprites Simple Fireball - Changed_1
       rect:
         serializedVersion: 2
         x: 1024
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b3498249188fc640b82b046ba8698e4
-      internalID: -3473196590691080499
+      spriteID: bd699a54ef487d04d9b42c6d780de5f8
+      internalID: 1615503203286057261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites Simple Fireball_2
+      name: Sprites Simple Fireball - Changed_2
       rect:
         serializedVersion: 2
         x: 2048
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92e0d56f0ee8b8844972c46f63d850f4
-      internalID: 6616289556537171845
+      spriteID: 41768d9ad55920a45acfb8e577e7b0d4
+      internalID: 8029953136333606999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites Simple Fireball_3
+      name: Sprites Simple Fireball - Changed_3
       rect:
         serializedVersion: 2
         x: 3072
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff417b60e3995e04e9a76cf520346f9b
-      internalID: -1214740573288635696
+      spriteID: caffcd6507fe4094da08ee0ce12cd6e5
+      internalID: 7592206435329397364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites Simple Fireball_4
+      name: Sprites Simple Fireball - Changed_4
       rect:
         serializedVersion: 2
         x: 4096
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0625c0ab16bda341a7caa23e07e6cfe
-      internalID: 6648636953242376369
+      spriteID: 0d21c06747697334e888247dcd81cf6b
+      internalID: 8090111301286024421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprites Simple Fireball_5
+      name: Sprites Simple Fireball - Changed_5
       rect:
         serializedVersion: 2
         x: 5120
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 042a5b4b92cdc0a479d7f87f7e3dcb6a
-      internalID: -4533876085337160701
+      spriteID: 5f4ceb7e381f42f4d97a6388b4b900e0
+      internalID: -2940495094598245364
       vertices: []
       indices: 
       edges: []

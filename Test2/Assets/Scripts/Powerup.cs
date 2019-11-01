@@ -8,8 +8,9 @@ public class Powerup : MonoBehaviour
     const int SPEED = 0;
     const int LIFE = 1;
     const int SHOOT = 2;
+    const int BULLET = 3;
 
-    int powerupAmount = 3; //max amount of powerup types
+    int powerupAmount = 4; //max amount of powerup types
 
     public int myPowerup; //the powerup type of this object
 
@@ -34,6 +35,10 @@ public class Powerup : MonoBehaviour
             else if (myPowerup == SHOOT)
             {
                 collision.GetComponent<Stats>().shootCap -= 0.05f;
+            }
+            else if (myPowerup == BULLET)
+            {
+                collision.GetComponent<Stats>().bulletLevel++;
             }
 
             Destroy(gameObject);

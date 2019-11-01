@@ -57,7 +57,10 @@ public class Asteroid : MonoBehaviour
     {
         if(collision.tag == "Bullet")
         {
-            Destroy(collision.gameObject);
+            if(collision.GetComponent<Bullet>().advanced == false)
+            {
+                Destroy(collision.gameObject);
+            }
 
             //if the asteroid is large, it breaks down
             if (life > 1)

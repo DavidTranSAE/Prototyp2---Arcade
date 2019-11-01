@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     public static event Life Lose;
     public static event Life Gain;
 
+    public Transform[] bulletPos;
+    const int MIDDLE = 0;
+    const int LEFT = 1;
+    const int RIGHT = 2;
+
     private void OnEnable()
     {
         Asteroid.Add += AddScore;
@@ -22,23 +27,26 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        /*if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e"))
         {
-            GetComponent<Stats>().score += 100;
-        }*/
+            GetComponent<Stats>().bulletLevel++;
+        }
     }
 
     public void Shoot()
     {
         if (GetComponent<Stats>().shootTimer <= 0)
         {
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
-            rbBullet.AddForce(transform.up * 50f);
-            Destroy(bullet, 3);
-            bullet.transform.parent = null;
+            if(GetComponent<Stats>().bulletLevel != 2 && GetComponent<Stats>().bulletLevel != 5)
+            {
+                ShootMiddle();
+            }
 
-            GetComponent<Stats>().shootTimer = GetComponent<Stats>().shootCap;
+            if(GetComponent<Stats>().bulletLevel != 1 && GetComponent<Stats>().bulletLevel != 4)
+            {
+                ShootLeft();
+                ShootRight();
+            }
         }
     }
 
@@ -100,7 +108,53 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(-transform.position.x, transform.position.x, transform.position.z);
         }*/
 
+    }
 
+    void ShootMiddle()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, bulletPos[MIDDLE].position, transform.rotation);
+        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+        rbBullet.AddForce(transform.up * 50f);
+        Destroy(bullet, 3);
+        bullet.transform.parent = null;
 
+        GetComponent<Stats>().shootTimer = GetComponent<Stats>().shootCap;
+
+        CheckAdvanced(bullet);
+
+    }
+
+    void ShootLeft()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, bulletPos[LEFT].position, transform.rotation);
+        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+        rbBullet.AddForce(transform.up * 50f);
+        Destroy(bullet, 3);
+        bullet.transform.parent = null;
+
+        GetComponent<Stats>().shootTimer = GetComponent<Stats>().shootCap;
+
+        CheckAdvanced(bullet);
+    }
+
+    void ShootRight()
+    {
+        GameObject bullet = Instantiate(bulletPrefab, bulletPos[RIGHT].position, transform.rotation);
+        Rigidbody2D rbBullet = bullet.GetComponent<Rigidbody2D>();
+        rbBullet.AddForce(transform.up * 50f);
+        Destroy(bullet, 3);
+        bullet.transform.parent = null;
+
+        GetComponent<Stats>().shootTimer = GetComponent<Stats>().shootCap;
+
+        CheckAdvanced(bullet);
+    }
+
+    void CheckAdvanced(GameObject bullet)
+    {
+        if(GetComponent<Stats>().bulletLevel > 3)
+        {
+            bullet.GetComponent<Bullet>().advanced = true;
+        }
     }
 }
