@@ -5,6 +5,11 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     public GameObject asteroidSpawner;
+    public Sprite aster1;
+    public Sprite aster2;
+    public Sprite aster3;
+    public Sprite aster4;
+    public int sprite;
 
     Vector2 direction;
     public float scale; //The original scale of the object. It is first 3 times the size and then gets smaller as it gets destroyed.
@@ -31,6 +36,24 @@ public class Asteroid : MonoBehaviour
         if (life <= 2)
         {
             rotSpeed = Random.Range(100, 125);
+        }
+
+        sprite = Random.Range(0, 3);
+        if (sprite == 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = aster1;
+        }
+        else if (sprite == 1)
+        {
+            GetComponent<SpriteRenderer>().sprite = aster2;
+        }
+        else if (sprite == 2)
+        {
+            GetComponent<SpriteRenderer>().sprite = aster3;
+        }
+        else if (sprite == 3)
+        {
+            GetComponent<SpriteRenderer>().sprite = aster4;
         }
     }
     void Update()
@@ -59,6 +82,7 @@ public class Asteroid : MonoBehaviour
         {
             if(collision.GetComponent<Bullet>().advanced == false)
             {
+
                 Destroy(collision.gameObject);
             }
 
@@ -105,4 +129,5 @@ public class Asteroid : MonoBehaviour
         //asteroidSpawner.GetComponent<AsteroidSpawner>().RemoveFromList(gameObject);
         Destroy(gameObject);
     }
+
 }

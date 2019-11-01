@@ -144,6 +144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidSpawner: {fileID: 0}
+  aster1: {fileID: -3820814304357012172, guid: 0101fd5bedcabac4ca385bf9b8a66b22, type: 3}
+  aster2: {fileID: 1975664056695943440, guid: 0101fd5bedcabac4ca385bf9b8a66b22, type: 3}
+  aster3: {fileID: 2664994837865516341, guid: 0101fd5bedcabac4ca385bf9b8a66b22, type: 3}
+  aster4: {fileID: -3633520135390422914, guid: 0101fd5bedcabac4ca385bf9b8a66b22, type: 3}
+  sprite: 0
   scale: 0.15
   life: 3
-  rotSpeed: 50
