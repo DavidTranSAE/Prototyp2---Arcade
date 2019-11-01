@@ -10,6 +10,11 @@ public class Powerup : MonoBehaviour
     const int SHOOT = 2;
     const int BULLET = 3;
 
+    public Sprite speedSprite;
+    public Sprite lifeSprite;
+    public Sprite shootSprite;
+    public Sprite bulletSprite;
+
     int powerupAmount = 4; //max amount of powerup types
 
     public int myPowerup; //the powerup type of this object
@@ -17,6 +22,24 @@ public class Powerup : MonoBehaviour
     void Start()
     {
         myPowerup = Random.Range(0, powerupAmount);
+        
+        if (myPowerup == SPEED)
+        {
+            GetComponent<SpriteRenderer>().sprite = speedSprite;
+        }
+        else if (myPowerup == LIFE)
+        {
+            GetComponent<SpriteRenderer>().sprite = lifeSprite;
+        }
+        else if (myPowerup == SHOOT)
+        {
+            GetComponent<SpriteRenderer>().sprite = shootSprite;
+        }
+        else if (myPowerup == BULLET)
+        {
+            GetComponent<SpriteRenderer>().sprite = bulletSprite;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

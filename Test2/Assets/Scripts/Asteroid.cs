@@ -20,7 +20,7 @@ public class Asteroid : MonoBehaviour
 
     void Awake()
     {
-        speed = Random.Range(4, 7);
+        speed = Random.Range(3, 6);
         rotSpeed = Random.Range(25, 75);
         rb = GetComponent<Rigidbody2D>();
     }
