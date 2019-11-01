@@ -9,6 +9,7 @@ public class AsteroidSpawner : MonoBehaviour
     int spawnAmount;
     float spawnTimerCap;
     float spawnTimer;
+    float difficultyTimer;
 
     public GameObject[] spawnPoints = new GameObject[8];
     //List<GameObject> allAsteroids;
@@ -18,11 +19,21 @@ public class AsteroidSpawner : MonoBehaviour
         spawnTimerCap = 1f;
         spawnAmount = 1;
         spawnTimer = spawnTimerCap;
-
+        difficultyTimer = 0;
     }
     
     void Update()
     {
+        difficultyTimer += Time.deltaTime;
+        if (difficultyTimer > 30)
+        {
+            spawnAmount++;
+            Debug.Log("Difficulty Increased");
+            difficultyTimer = 0;
+        }
+        
+
+
         spawnTimer -= Time.deltaTime;
 
         if(spawnTimer <= 0)
